@@ -1,7 +1,7 @@
 class Rational_2(var x : Int , var y : Int){
   require(y > 0 , "denominator must be positive");
   
-  private def gcd(a : Int , b : Int): Int = if (b == 0) a else gcd(b,a%b);
+  private def gcd(a : Int , b : Int): Int = if (b == 0) a else gcd(b,((a%b)+b)%b);
   private val g = gcd(x,y);
   
   val numer = x/g ;
@@ -16,6 +16,8 @@ class Rational_2(var x : Int , var y : Int){
   
   def -(r : Rational_2) = this + r.neg;
   
+  override def toString = numer + "/" + demon;
+  
  
 }
 object tutorial7_2 {
@@ -25,7 +27,7 @@ object tutorial7_2 {
     var z = new Rational_2(2,7);
     
     var result = x - z - y ;
-    println(result.demon,result.numer);
+    println(result.toString);
 
   }
   
